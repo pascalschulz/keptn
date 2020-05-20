@@ -27,7 +27,7 @@ export class ApiService {
   }
 
   public getVersion(): Observable<Object> {
-    let url = `/api/`;
+    let url = `${this._baseUrl}/`;
     return this.http
       .get<Object>(url, { headers: this.headers })
       .pipe(catchError(this.handleError<Object>('getVersion')));

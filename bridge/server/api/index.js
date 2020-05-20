@@ -10,7 +10,10 @@ module.exports = (params) => {
     try {
       return res.json({
         version: process.env.VERSION,
-        apiUrl: process.env.API_URL
+        apiUrl: process.env.API_URL,
+        apiService: process.env.API_SERVICE,
+        datastore: process.env.DATASTORE,
+        configurationService: process.env.CONFIGURATION_SERVICE,
       });
     } catch (err) {
       return next(err);
