@@ -60,7 +60,7 @@ import {DtButtonGroupModule} from "@dynatrace/barista-components/button-group";
 import {DtChartModule} from "@dynatrace/barista-components/chart";
 import {DtOverlayModule} from "@dynatrace/barista-components/overlay";
 
-import {registerLocaleData} from "@angular/common";
+import {LocationStrategy, PathLocationStrategy, registerLocaleData} from "@angular/common";
 import localeEn from '@angular/common/locales/en';
 import {MatDialogModule} from "@angular/material/dialog";
 
@@ -138,6 +138,10 @@ registerLocaleData(localeEn, 'en');
       provide: HTTP_INTERCEPTORS,
       useClass: HttpLoadingInterceptor,
       multi: true
+    },
+    Location,
+    {
+      provide: LocationStrategy, useClass: PathLocationStrategy
     }
   ],
   bootstrap: [AppComponent]
